@@ -1,6 +1,6 @@
 resource "aws_lb" "nginx" {
   name               = "alb"
-  subnets             =  ["${aws_subnet.az1.id}, ${aws_subnet.az2.id}"] 
+  subnets            = [aws_subnet.az1.id,aws_subnet.az2.id]
   load_balancer_type = "application"
   security_groups    = [aws_security_group.allow_http.id]
 
