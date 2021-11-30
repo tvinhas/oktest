@@ -46,3 +46,7 @@ resource "aws_nat_gateway" "web-use1a" {
 }
 
 
+resource "aws_nat_gateway" "web-use1b" {
+  connectivity_type = "private"
+  subnet_id         = aws_subnet.az2.id
+}
