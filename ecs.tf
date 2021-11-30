@@ -19,6 +19,13 @@ resource "aws_ecs_task_definition" "service" {
       "essential": true,
       "image": "nginx:latest",
       "name": "nginx",
+      "portMappings": [
+            {
+              "containerPort": 80,
+              "hostPort": 80,
+              "protocol": "tcp"
+            }
+          ],
       "logConfiguration": {
                   "logDriver": "awslogs",
                   "options": {
