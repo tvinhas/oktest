@@ -8,6 +8,6 @@ How to use this terraform template:
 export AWS_ACCESS_KEY_ID="ASIA98459FJ93A2BE"
 export AWS_SECRET_ACCESS_KEY="To/ABPSqDZyKie8kLneUrYKkzWlZvipycajy"
 ```
-* Run the command `terraform plan`
-* Check the output and if that's what you want
+* Run the command `terraform init` to download any required modules
+* Run the command `terraform plan` and check the output to confirm if that's what you want
 * Run the command `terraform apply`
