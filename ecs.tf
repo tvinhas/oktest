@@ -18,7 +18,7 @@ resource "aws_ecs_task_definition" "service" {
       ],
       "essential": true,
       "image": "nginx:latest",
-      "name": "webserver",
+      "name": "nginx",
       "logConfiguration": {
                   "logDriver": "awslogs",
                   "options": {
