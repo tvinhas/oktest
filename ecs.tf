@@ -25,15 +25,7 @@ resource "aws_ecs_task_definition" "service" {
               "hostPort": 80,
               "protocol": "tcp"
             }
-          ],
-      "logConfiguration": {
-                  "logDriver": "awslogs",
-                  "options": {
-                      "awslogs-region" : "eu-east-1",
-                      "awslogs-group" : "stream-to-log-fluentd",
-                      "awslogs-stream-prefix" : "project"
-                  }
-              }
+          ]
       }
   ]
   DEFINITION
