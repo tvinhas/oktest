@@ -51,8 +51,8 @@ resource "aws_ecs_service" "nginx" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    security_groups  = [aws_security_group.allow_http.id]
-    subnets          = [aws_subnet.az1.id,aws_subnet.az2.id]
+    security_groups  = [aws_security_group.oktest.id]
+    subnets          = module.vpc.private_subnets
     assign_public_ip = true
   }
 

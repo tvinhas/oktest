@@ -1,8 +1,8 @@
 
-resource "aws_security_group" "allow_http" {
-    name = "allow_http"
+resource "aws_security_group" "oktest" {
+    name = "oktest"
     description = "Allow Web inbound traffic"
-    vpc_id = "${aws_vpc.main.id}"
+    vpc_id = module.vpc.vpc_id
     ingress {
         from_port = 80
         to_port = 80

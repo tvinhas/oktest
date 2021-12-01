@@ -1,8 +1,8 @@
 resource "aws_lb" "nginx" {
   name               = "alb"
-  subnets            = [aws_subnet.az1.id,aws_subnet.az2.id]
+  subnets            = module.vpc.public_subnets
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.allow_http.id]
+  security_groups    = [aws_security_group.oktest.id]
 
   tags = {
     Environment = "test"
@@ -25,7 +25,7 @@ resource "aws_lb_target_group" "nginx" {
   name        = "nginx-tg"
   port        = 80
   protocol    = "HTTP"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = module.vpc.vpc_id
   target_type = "ip"
 
   health_check {
