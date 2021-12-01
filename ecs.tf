@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "service" {
-  family                   = "fargate-task-definition"
+  family                   = "nginx"
   task_role_arn            = aws_iam_role.ecs_task_role.arn
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   network_mode             = "awsvpc"
@@ -9,16 +9,9 @@ resource "aws_ecs_task_definition" "service" {
   container_definitions = <<DEFINITION
   [
     {
-      "command": [
-        "/bin/sh -c \"echo '<html> <head> <title>Test/title></head><body> <h1>It works!</h1> Yaaaay!</body></html>' >  /usr/share/nginx/html/index.html\""
-      ],
-      "entryPoint": [
-        "sh",
-        "-c"
-      ],
-      "essential": true,
-      "image": "nginx:latest",
       "name": "nginx",
+      "image": "nginx:latest",
+      "essential": true,
       "portMappings": [
             {
               "containerPort": 80,
